@@ -1,0 +1,24 @@
+$menu-border: black
+
+$menu-item-color: black
+$menu-item-hover-color: white
+$menu-item-hover-bg: black
+    
+.menu-nav
+    border-bottom: 2px solid $menu-border
+    padding: 0
+
+    > .item
+        font-size: 12px
+        padding: 10px
+        display: inline-block
+        color: $menu-item-color
+        transition: background 0.2s
+
+        &:hover
+            background-color: $menu-item-hover-bg
+            color: $menu-item-hover-color
+            text-decoration: none
+        
+        &.-disabled
+            opacity: .5

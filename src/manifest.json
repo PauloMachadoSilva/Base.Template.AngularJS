@@ -1,0 +1,37 @@
+{
+    "manifest_version": 1,
+    "version": "0.1",
+
+    "short_name": "@todo(mudar_nome_encurtado)",
+    "name": "@todo(Mudar nome do projeto)",
+    "default_locale": "pt-BR",
+
+    "start_url": "/",
+    "background_color": "#FFFFFF",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "orientation": "portrait",
+
+    "icons": [
+      {
+        "src": "/assets/imgs/icon-192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/assets/imgs/icon-256.png",
+        "type": "image/png",
+        "sizes": "256x256"
+      },
+      {
+        "src": "/assets/imgs/icon-384.png",
+        "type": "image/png",
+        "sizes": "384x384"
+      },
+      {
+        "src": "/assets/imgs/icon-512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ]
+  }

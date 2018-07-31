@@ -1,0 +1,49 @@
+$modal-bg: #ddd
+    
+.modal
+    background-color: $modal-bg
+    position: relative
+    width: 100%
+
+    > .body
+        background-color: inherit
+        border: 0
+        padding: 0
+        width: 100%
+
+    > .footer
+        height: 20px
+
++mq('tablet', 'max')
+    html, body
+        min-height: 100vh
+        position: relative
+
+    .modal
+        min-height: 100vh
+
+        > .body
+            overflow-x: hidden
+            padding-bottom: 20px
+
+        > .footer
+            background-position: center
+            bottom: 0
+            position: absolute
+            width: 100%
+
++mq('tablet')
+    .modal
+        height: 580px
+        width: 775px
+
+        > .body
+            border: 5px solid #000
+            height: 100%
+
+        > .footer
+            bottom: 0
+            left: 0
+            position: absolute
+            width: 100%
+            z-index: 1

@@ -1,0 +1,18 @@
+import 'angular';
+import 'angular-cookies';
+import 'angular-format-masks';
+import 'angular-mocks';
+import 'angular-spinner';
+import 'angulartics';
+import 'angulartics-google-tag-manager';
+import './node_modules/angular-i18n/angular-locale_pt-br.js';
+import 'angular-input-masks';
+import 'angular-sanitize';
+import 'angular-touch';
+import 'ngstorage';
+import 'oclazyload';
+import 'spin.js';
+import '@uirouter/core';
+import '@uirouter/angularjs';
+let context = require.context('./src', true, /\.spec\.js/);
+context.keys().forEach(context);

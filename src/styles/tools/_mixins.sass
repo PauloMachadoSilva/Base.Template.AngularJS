@@ -1,0 +1,75 @@
+//TOOLS - Mixins e funções
+
+=flexBox($hAlign, $vAlign)
+    align-items: $vAlign
+    display: flex
+    justify-content: $hAlign
+
+=push--auto
+    left: auto
+    right: auto
+
+// Adiciona o conteudo obrigatorio para o before e after
+=pseudo($content: '', $display: block, $pos: absolute)
+    content: $content
+    display: $display
+    position: $pos
+
+// aspecto responsivo, geralmente utilizado para videos, veja exemplo abaixo:
+// div
+//    +responsive-ratio(16,9)
+=responsive-ratio($x,$y, $pseudo: false)
+    $padding: unquote( ( $y / $x ) * 100 + '%' )
+
+    @if $pseudo
+        &:before
+            padding-top: $padding
+            +pseudo($pos: relative)
+            width: 100%
+
+    @else
+        padding-top: $padding
+
+
+//triangulos com css
+=css-triangle($color, $direction, $size: 6px, $position: absolute, $round: false)
+    height: 0
+    +pseudo($pos: $position)
+    width: 0
+
+    @if $round
+        border-radius: 3px
+
+    @if $direction == down
+        border-left: $size solid transparent
+        border-right: $size solid transparent
+        border-top: $size solid $color
+        margin-top: 0 - round( $size / 2.5 )
+    @else if $direction == up
+        border-bottom: $size solid $color
+        border-left: $size solid transparent
+        border-right: $size solid transparent
+        margin-bottom: 0 - round( $size / 2.5 )
+    @else if $direction == right
+        border-bottom: $size solid transparent
+        border-left: $size solid $color
+        border-top: $size solid transparent
+        margin-right: -$size
+    @else if  $direction == left
+        border-bottom: $size solid transparent
+        border-right: $size solid $color
+        border-top: $size solid transparent
+        margin-left: -$size
+
+//media queries
+$breakpoints: ("phone-small": 320px, "phone": 400px, "phone-wide": 480px, "phablet": 560px, "tablet-small": 640px, "tablet": 768px, "tablet-wide": 1024px, "desktop": 1248px, "desktop-wide": 1440px )
+
+=mq($width, $type: min)
+    @if map_has_key($breakpoints, $width)
+        $width: map_get($breakpoints, $width)
+
+    @if $type == max
+        $width: $width - 1px
+
+    @media only screen and (#{$type}-width: $width)
+        @content
